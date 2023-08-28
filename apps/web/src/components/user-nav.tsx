@@ -1,6 +1,4 @@
-'use client'
-
-import { useAuth, useUser } from '@clerk/nextjs'
+import { SignOutButton, currentUser } from '@clerk/nextjs'
 import { Avatar, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
 import {
@@ -13,17 +11,13 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import { Skeleton } from './ui/skeleton'
 import Link from 'next/link'
 
-export function UserNav() {
-  const { user, isLoaded: isUserLoaded } = useUser()
-  const { signOut } = useAuth()
+export async function UserNav() {
+  const user = await currentUser()
 
-  const isLoading = !isUserLoaded
-
-  if (isLoading) {
-    return <Skeleton className="h-8 w-8 rounded-full" />
+  if (!user) {
+    throw new Error('Not authenticated.')
   }
 
   return (
@@ -31,19 +25,25 @@ export function UserNav() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="relative h-8 w-8 select-none rounded-full"
+          className="relative h-8 w-8 select-none rounded-full bg-primary/10"
         >
           <Avatar className="h-8 w-8">
-            <AvatarImage src={user?.imageUrl} alt={user?.fullName ?? ''} />
+            <AvatarImage src={user.imageUrl} alt="" />
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-2">
-            <p className="text-sm font-medium leading-none">{user?.fullName}</p>
+            <p className="text-sm font-medium leading-none">
+              {user.firstName + ' ' + user.lastName}
+            </p>
             <p className="text-xs leading-none text-muted-foreground">
-              {user?.primaryEmailAddress?.emailAddress}
+              {
+                user.emailAddresses.find(
+                  (email) => email.id === user.primaryEmailAddressId,
+                )?.emailAddress
+              }
             </p>
           </div>
         </DropdownMenuLabel>
@@ -63,10 +63,12 @@ export function UserNav() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => signOut()}>
-          Log out
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-        </DropdownMenuItem>
+        <SignOutButton>
+          <DropdownMenuItem>
+            Log out
+            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </SignOutButton>
       </DropdownMenuContent>
     </DropdownMenu>
   )
