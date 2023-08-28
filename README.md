@@ -1,6 +1,6 @@
 # Flowly
 
-This is a application built with Next.js 13, Tailwind, shadcn/ui, [Clerk](https://clerk.dev?utm_source=rocketseat&utm_medium=web) and Radix UI.
+This app is built with Next.js 13, Tailwind, shadcn/ui, [Clerk](https://clerk.dev?utm_source=rocketseat&utm_medium=web) and Radix UI.
 
 ![Screenshot](.github/screenshot.png)
 
