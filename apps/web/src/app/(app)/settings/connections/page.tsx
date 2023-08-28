@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { Skeleton } from '@/components/ui/skeleton'
 
 dayjs.extend(relativeTime)
 
@@ -24,7 +25,7 @@ export default function LoginConnections() {
   })
 
   return (
-    <>
+    <div className="space-y-6">
       <div>
         <h1 className="text-lg font-medium">Login Connections</h1>
         <span className="text-sm text-muted-foreground">
@@ -34,12 +35,20 @@ export default function LoginConnections() {
 
       <Separator />
 
+      {isLoading && (
+        <div className="space-y-4">
+          <Skeleton className="h-28" />
+          <Skeleton className="h-28" />
+          <Skeleton className="h-28" />
+        </div>
+      )}
+
       {data.map((session) => {
         const isCurrentSession = currentSession?.id === session.id
 
         return (
           <Card
-            className="flex items-center justify-between p-6"
+            className="flex h-28 items-center justify-between p-6"
             key={session.id}
           >
             <div className="flex flex-col gap-1">
@@ -61,6 +70,6 @@ export default function LoginConnections() {
           </Card>
         )
       })}
-    </>
+    </div>
   )
 }

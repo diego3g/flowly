@@ -15,6 +15,15 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
+import Image from 'next/image'
+
+interface ProfileFormProps {
+  user: {
+    firstName: string | null
+    lastName: string | null
+    imageUrl: string
+  }
+}
 
 const profileFormSchema = z.object({
   avatar: z.any(),
@@ -24,10 +33,14 @@ const profileFormSchema = z.object({
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>
 
-export function ProfileForm() {
+export function ProfileForm({ user }: ProfileFormProps) {
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     mode: 'onChange',
+    defaultValues: {
+      firstName: user.firstName ?? '',
+      lastName: user.lastName ?? '',
+    },
   })
 
   function onSubmit(data: ProfileFormValues) {
@@ -62,12 +75,14 @@ export function ProfileForm() {
 
                   <label
                     htmlFor={field.name}
-                    className="cursor-pointer hover:opacity-80"
+                    className="cursor-pointer hover:opacity-70"
                   >
-                    <img
-                      src="https://github.com/diego3g.png"
+                    <Image
+                      src={user.imageUrl}
                       alt=""
-                      className="h-16 w-16 rounded-full"
+                      width={64}
+                      height={64}
+                      className="h-16 w-16 rounded-full bg-primary/10"
                     />
                   </label>
                   <div>

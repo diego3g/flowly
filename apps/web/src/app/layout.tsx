@@ -44,6 +44,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           formFieldWarningText: 'text-xs',
           formFieldSuccessText: 'text-xs',
 
+          identityPreviewEditButtonIcon: 'text-foreground',
+          formResendCodeLink: 'text-muted-foreground',
+          otpCodeFieldInput: 'focus:border-primary',
+
           organizationSwitcherTrigger: 'border border-border',
         },
       }}

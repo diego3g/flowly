@@ -5,7 +5,11 @@ import { Separator } from '@/components/ui/separator'
 export default async function Profile() {
   const user = await currentUser()
 
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  if (!user) {
+    throw new Error('Not authenticated')
+  }
+
+  const { firstName, lastName, imageUrl } = user
 
   return (
     <div className="space-y-6">
@@ -18,7 +22,7 @@ export default async function Profile() {
 
       <Separator />
 
-      <ProfileForm />
+      <ProfileForm user={{ firstName, lastName, imageUrl }} />
     </div>
   )
 }
