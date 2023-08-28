@@ -17,7 +17,7 @@ import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
 
 const profileFormSchema = z.object({
-  avatar: z.instanceof(FileList),
+  avatar: z.any(),
   firstName: z.string(),
   lastName: z.string(),
 })

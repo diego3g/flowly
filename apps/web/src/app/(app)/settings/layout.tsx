@@ -14,10 +14,9 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       <Separator />
 
-      <div className="grid grid-cols-[15rem_1fr] gap-8">
+      <div className="grid grid-cols-[15rem_1fr] items-start gap-8">
         <SidebarNav />
-
-        <div className="space-y-6">{children}</div>
+        {children}
       </div>
     </div>
   )
