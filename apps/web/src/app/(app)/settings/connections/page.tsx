@@ -43,33 +43,35 @@ export default function LoginConnections() {
         </div>
       )}
 
-      {data.map((session) => {
-        const isCurrentSession = currentSession?.id === session.id
+      <div className="space-y-4">
+        {data.map((session) => {
+          const isCurrentSession = currentSession?.id === session.id
 
-        return (
-          <Card
-            className="flex h-28 items-center justify-between p-6"
-            key={session.id}
-          >
-            <div className="flex flex-col gap-1">
-              <span className="flex items-center gap-2">
-                {session.latestActivity.deviceType} (
-                {session.latestActivity.browserName}){' '}
-                {isCurrentSession && (
-                  <Badge variant="secondary">This device</Badge>
-                )}
-              </span>
-              <span className="text-sm text-muted-foreground">
-                Last active {dayjs(session.lastActiveAt).fromNow()}
-              </span>
-            </div>
+          return (
+            <Card
+              className="flex h-28 items-center justify-between p-6"
+              key={session.id}
+            >
+              <div className="flex flex-col gap-1">
+                <span className="flex items-center gap-2">
+                  {session.latestActivity.deviceType} (
+                  {session.latestActivity.browserName}){' '}
+                  {isCurrentSession && (
+                    <Badge variant="secondary">This device</Badge>
+                  )}
+                </span>
+                <span className="text-sm text-muted-foreground">
+                  Last active {dayjs(session.lastActiveAt).fromNow()}
+                </span>
+              </div>
 
-            <Button variant="destructive" disabled={isCurrentSession}>
-              Revoke access
-            </Button>
-          </Card>
-        )
-      })}
+              <Button variant="destructive" disabled={isCurrentSession}>
+                Revoke access
+              </Button>
+            </Card>
+          )
+        })}
+      </div>
     </div>
   )
 }

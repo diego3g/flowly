@@ -7,6 +7,7 @@ import { BellIcon } from '@radix-ui/react-icons'
 import { UserNav } from './user-nav'
 import { Suspense } from 'react'
 import { Skeleton } from './ui/skeleton'
+import { NavLink } from './nav-link'
 
 export function Header() {
   return (
@@ -23,30 +24,10 @@ export function Header() {
         <Separator orientation="vertical" className="h-5" />
 
         <nav className="flex items-center space-x-6">
-          <Link
-            href="/services"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            Services
-          </Link>
-          <Link
-            href="/events"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            Events
-          </Link>
-          <Link
-            href="/monitoring"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            Monitoring
-          </Link>
-          <Link
-            href="/settings"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            Settings
-          </Link>
+          <NavLink href="/services">Services</NavLink>
+          <NavLink href="/events">Events</NavLink>
+          <NavLink href="/monitoring">Monitoring</NavLink>
+          <NavLink href="/settings">Settings</NavLink>
         </nav>
       </div>
 
@@ -58,24 +39,15 @@ export function Header() {
         <Separator orientation="vertical" className="h-5" />
 
         <nav className="flex items-center space-x-6">
-          <Link
-            href="/examples/dashboard"
-            className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
+          <NavLink className="text-xs font-normal" href="/examples/dashboard">
             Changelog
-          </Link>
-          <Link
-            href="/examples/dashboard"
-            className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
+          </NavLink>
+          <NavLink className="text-xs font-normal" href="/examples/dashboard">
             Help
-          </Link>
-          <Link
-            href="/examples/dashboard"
-            className="text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
+          </NavLink>
+          <NavLink className="text-xs font-normal" href="/examples/dashboard">
             Docs
-          </Link>
+          </NavLink>
         </nav>
 
         <Separator orientation="vertical" className="h-5" />
