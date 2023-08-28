@@ -34,7 +34,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={twMerge('font-semibold leading-none tracking-tight', className)}
+    className={twMerge('font-semibold leading-tight tracking-tight', className)}
     {...props}
   />
 ))
@@ -46,7 +46,10 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={twMerge('text-sm text-muted-foreground', className)}
+    className={twMerge(
+      'text-sm leading-relaxed text-muted-foreground',
+      className,
+    )}
     {...props}
   />
 ))

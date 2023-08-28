@@ -24,25 +24,25 @@ export function Header() {
 
         <nav className="flex items-center space-x-6">
           <Link
-            href="/examples/dashboard"
+            href="/services"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Services
           </Link>
           <Link
-            href="/examples/dashboard"
+            href="/events"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Events
           </Link>
           <Link
-            href="/examples/dashboard"
+            href="/monitoring"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Monitoring
           </Link>
           <Link
-            href="/examples/dashboard"
+            href="/settings"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Settings
@@ -54,7 +54,9 @@ export function Header() {
         <Button variant="outline" size="sm">
           Feedback
         </Button>
+
         <Separator orientation="vertical" className="h-5" />
+
         <nav className="flex items-center space-x-6">
           <Link
             href="/examples/dashboard"
@@ -75,7 +77,9 @@ export function Header() {
             Docs
           </Link>
         </nav>
+
         <Separator orientation="vertical" className="h-5" />
+
         <Button
           variant="outline"
           className="h-6 gap-1 rounded-full px-2 text-secondary-foreground"
