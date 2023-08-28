@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-background h-screen flex flex-col gap-12 items-center justify-center">
+    <div className="flex h-screen flex-col items-center justify-center gap-12 bg-background">
       {children}
     </div>
   )

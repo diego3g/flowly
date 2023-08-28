@@ -27,7 +27,7 @@ export default function LoginConnections() {
     <>
       <div>
         <h1 className="text-lg font-medium">Login Connections</h1>
-        <span className="text-muted-foreground text-sm">
+        <span className="text-sm text-muted-foreground">
           Your currently account active login connections.
         </span>
       </div>
@@ -39,7 +39,7 @@ export default function LoginConnections() {
 
         return (
           <Card
-            className="flex justify-between items-center p-6"
+            className="flex items-center justify-between p-6"
             key={session.id}
           >
             <div className="flex flex-col gap-1">

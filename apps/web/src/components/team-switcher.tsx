@@ -6,7 +6,7 @@ import {
   CheckIcon,
   PlusCircledIcon,
 } from '@radix-ui/react-icons'
-import { Loader, Loader2 } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 
 import { twMerge } from 'tailwind-merge'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
@@ -32,13 +32,6 @@ import {
 } from './ui/command'
 import { Label } from './ui/label'
 import { Input } from './ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from './ui/select'
 import { useState } from 'react'
 import { useOrganization, useOrganizationList, useUser } from '@clerk/nextjs'
 import { Skeleton } from './ui/skeleton'
@@ -109,7 +102,7 @@ export function TeamSwitcher({ className }: TeamSwitcherProps) {
           >
             {isLoading ? (
               <>
-                <Skeleton className="rounded-full w-5 h-5 bg-primary/30" />
+                <Skeleton className="h-5 w-5 rounded-full bg-primary/30" />
                 <Skeleton className="h-3 w-32 bg-primary/30" />
               </>
             ) : !currentOrganization ? (
@@ -117,7 +110,7 @@ export function TeamSwitcher({ className }: TeamSwitcherProps) {
                 <Avatar className="h-5 w-5">
                   <AvatarImage src={user?.imageUrl} />
                 </Avatar>
-                <span className="text-muted-foreground text-xs">
+                <span className="text-xs text-muted-foreground">
                   {user?.fullName}
                 </span>
               </>
@@ -126,15 +119,15 @@ export function TeamSwitcher({ className }: TeamSwitcherProps) {
                 <Avatar className="h-5 w-5">
                   <AvatarImage src={currentOrganization.imageUrl} />
                 </Avatar>
-                <span className="text-muted-foreground text-xs">
+                <span className="text-xs text-muted-foreground">
                   {currentOrganization.name}
                 </span>
               </>
             )}
             {isSettingOrganization ? (
-              <Loader2 className="h-4 w-4 shrink-0 opacity-30 animate-spin ml-auto" />
+              <Loader2 className="ml-auto h-4 w-4 shrink-0 animate-spin opacity-30" />
             ) : (
-              <CaretSortIcon className="h-4 w-4 shrink-0 opacity-50 ml-auto" />
+              <CaretSortIcon className="ml-auto h-4 w-4 shrink-0 opacity-50" />
             )}
           </Button>
         </PopoverTrigger>
@@ -151,7 +144,7 @@ export function TeamSwitcher({ className }: TeamSwitcherProps) {
                   <Avatar className="h-5 w-5">
                     <AvatarImage src={user?.imageUrl} />
                   </Avatar>
-                  <span className="text-muted-foreground text-xs">
+                  <span className="text-xs text-muted-foreground">
                     {user?.fullName}
                   </span>
                   {currentOrganization === null && (
@@ -171,7 +164,7 @@ export function TeamSwitcher({ className }: TeamSwitcherProps) {
                         <AvatarImage src={organization.imageUrl} />
                         <AvatarFallback>SC</AvatarFallback>
                       </Avatar>
-                      <span className="text-muted-foreground text-xs">
+                      <span className="text-xs text-muted-foreground">
                         {organization.name}
                       </span>
                       {organization.id === currentOrganization?.id && (
@@ -187,7 +180,7 @@ export function TeamSwitcher({ className }: TeamSwitcherProps) {
               <CommandGroup>
                 <DialogTrigger asChild>
                   <CommandItem
-                    className="gap-2 text-xs py-2"
+                    className="gap-2 py-2 text-xs"
                     onSelect={() => {
                       setOpen(false)
                       setShowNewTeamDialog(true)

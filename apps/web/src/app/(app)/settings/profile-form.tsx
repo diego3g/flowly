@@ -50,7 +50,7 @@ export function ProfileForm() {
               control={form.control}
               name="avatar"
               render={({ field }) => (
-                <div className="flex gap-6 items-center">
+                <div className="flex items-center gap-6">
                   <input
                     type="file"
                     className="sr-only"
@@ -67,12 +67,12 @@ export function ProfileForm() {
                     <img
                       src="https://github.com/diego3g.png"
                       alt=""
-                      className="w-16 h-16 rounded-full"
+                      className="h-16 w-16 rounded-full"
                     />
                   </label>
                   <div>
                     <span className="text-lg font-medium">Your avatar</span>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       Click on the avatar to upload a custom one from your
                       files.
                     </p>

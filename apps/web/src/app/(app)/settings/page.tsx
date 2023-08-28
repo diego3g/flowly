@@ -9,7 +9,7 @@ export default async function Profile() {
     <>
       <div>
         <h1 className="text-lg font-medium">Profile</h1>
-        <span className="text-muted-foreground text-sm">
+        <span className="text-sm text-muted-foreground">
           Update your basic profile info.
         </span>
       </div>

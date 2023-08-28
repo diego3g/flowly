@@ -1,6 +1,6 @@
 'use client'
 
-import { useAuth, useUser, UserProfile } from '@clerk/nextjs'
+import { useAuth, useUser } from '@clerk/nextjs'
 import { Avatar, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
 import {
@@ -14,7 +14,6 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
 import { Skeleton } from './ui/skeleton'
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import Link from 'next/link'
 
 export function UserNav() {
@@ -32,7 +31,7 @@ export function UserNav() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="relative h-8 w-8 rounded-full select-none"
+          className="relative h-8 w-8 select-none rounded-full"
         >
           <Avatar className="h-8 w-8">
             <AvatarImage src={user?.imageUrl} alt={user?.fullName ?? ''} />

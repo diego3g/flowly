@@ -9,8 +9,8 @@ import { ReactNode } from 'react'
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-background min-h-screen">
-      <div className="border-b px-6 flex justify-between items-center h-16">
+    <div className="min-h-screen bg-background">
+      <div className="flex h-16 items-center justify-between border-b px-6">
         <div className="flex items-center gap-4">
           <Link href="/">
             <Logo className="h-8 w-8" />
@@ -73,16 +73,16 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           <Separator orientation="vertical" className="h-5" />
           <Button
             variant="outline"
-            className="rounded-full gap-1 h-6 px-2 text-secondary-foreground"
+            className="h-6 gap-1 rounded-full px-2 text-secondary-foreground"
             size="sm"
           >
-            <BellIcon className="w-3 h-3" />
+            <BellIcon className="h-3 w-3" />
             <span>12</span>
           </Button>
           <UserNav />
         </div>
       </div>
-      <main className="p-6 max-w-6xl mx-auto">{children}</main>
+      <main className="mx-auto max-w-6xl p-6">{children}</main>
     </div>
   )
 }
