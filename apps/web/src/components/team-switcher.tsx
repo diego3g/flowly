@@ -111,7 +111,7 @@ export function TeamSwitcher({ className }: TeamSwitcherProps) {
                   <AvatarImage src={user?.imageUrl} />
                 </Avatar>
                 <span className="text-xs text-muted-foreground">
-                  {user?.fullName}
+                  {user?.fullName ?? 'Personal'}
                 </span>
               </>
             ) : (
