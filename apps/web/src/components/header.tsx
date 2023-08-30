@@ -3,11 +3,11 @@ import { Logo } from './logo'
 import { Separator } from './ui/separator'
 import { TeamSwitcher } from './team-switcher'
 import { Button } from './ui/button'
-import { BellIcon } from '@radix-ui/react-icons'
 import { UserNav } from './user-nav'
 import { Suspense } from 'react'
 import { Skeleton } from './ui/skeleton'
 import { NavLink } from './nav-link'
+import { Notifications } from './notifications'
 
 export function Header() {
   return (
@@ -52,14 +52,7 @@ export function Header() {
 
         <Separator orientation="vertical" className="h-5" />
 
-        <Button
-          variant="outline"
-          className="h-6 gap-1 rounded-full px-2 text-secondary-foreground"
-          size="sm"
-        >
-          <BellIcon className="h-3 w-3" />
-          <span>12</span>
-        </Button>
+        <Notifications />
 
         <Suspense fallback={<Skeleton className="h-8 w-8 rounded-full" />}>
           <UserNav />
