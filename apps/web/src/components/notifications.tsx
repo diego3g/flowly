@@ -16,11 +16,16 @@ export async function Notifications() {
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="h-6 gap-1 rounded-full px-2 text-secondary-foreground"
+          className="relative h-6 gap-1 rounded-full px-2 text-secondary-foreground"
           size="sm"
         >
           <BellIcon className="h-3 w-3" />
           <span>12</span>
+
+          <span className="absolute -right-0.5 -top-0.5 flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500"></span>
+          </span>
         </Button>
       </PopoverTrigger>
 
