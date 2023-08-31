@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
+import {
+  Collapsible,
+  CollapsibleSubContent,
+  CollapsibleSubTrigger,
+} from '@/components/ui/collapsible'
+
 import { Label } from '@/components/ui/label'
 import {
   Select,
@@ -13,7 +18,6 @@ import { Separator } from '@/components/ui/separator'
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -21,7 +25,6 @@ import {
 } from '@/components/ui/table'
 import { CubeIcon } from '@radix-ui/react-icons'
 import { Split } from 'lucide-react'
-import Link from 'next/link'
 
 export default async function Monitoring() {
   return (
@@ -35,7 +38,7 @@ export default async function Monitoring() {
 
       <Separator />
 
-      <div className="grid grid-cols-[15rem_1fr] items-start gap-8">
+      <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[15rem_1fr]">
         <nav className="flex flex-col gap-6">
           <div className="space-y-2">
             <Label htmlFor="timeline">Timeline</Label>
@@ -52,7 +55,7 @@ export default async function Monitoring() {
           </div>
 
           <Separator />
-          <div className="space-y-6">
+          <div className="hidden space-y-6 md:block">
             <span className="block text-sm font-semibold">Status</span>
 
             <div className="space-y-4">
@@ -103,8 +106,62 @@ export default async function Monitoring() {
             </div>
           </div>
 
+          <Collapsible className="group md:hidden">
+            <CollapsibleSubTrigger className="text-sm font-semibold">
+              Status
+            </CollapsibleSubTrigger>
+            <CollapsibleSubContent>
+              <div className="ms-1 space-y-4">
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-1" />
+                  <Label htmlFor="service-1" asChild>
+                    <Badge
+                      size="sm"
+                      variant="secondary"
+                      className="bg-emerald-400/20"
+                    >
+                      Success
+                    </Badge>
+                  </Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-2" />
+                  <Label htmlFor="service-1" asChild>
+                    <Badge
+                      size="sm"
+                      variant="secondary"
+                      className="bg-rose-400/20"
+                    >
+                      Error
+                    </Badge>
+                  </Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-3" />
+                  <Label htmlFor="service-1" asChild>
+                    <Badge size="sm" variant="secondary">
+                      Waiting
+                    </Badge>
+                  </Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-3" />
+                  <Label htmlFor="service-1" asChild>
+                    <Badge
+                      size="sm"
+                      variant="secondary"
+                      className="bg-amber-400/20"
+                    >
+                      Retrying
+                    </Badge>
+                  </Label>
+                </div>
+              </div>
+            </CollapsibleSubContent>
+          </Collapsible>
+
           <Separator />
-          <div className="space-y-6">
+          <div className="hidden space-y-6 md:block">
             <span className="block text-sm font-semibold">
               Filter by services (7)
             </span>
@@ -137,8 +194,43 @@ export default async function Monitoring() {
             </div>
           </div>
 
+          <Collapsible className="group md:hidden">
+            <CollapsibleSubTrigger className="text-sm font-semibold">
+              Filter by services (7)
+            </CollapsibleSubTrigger>
+            <CollapsibleSubContent>
+              <div className="ms-1 space-y-4">
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-1" />
+                  <Label htmlFor="service-1">Pluto</Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-2" />
+                  <Label htmlFor="service-2">Atlas</Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-3" />
+                  <Label htmlFor="service-3">Streaks</Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-4" />
+                  <Label htmlFor="service-4">Station</Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-5" />
+                  <Label htmlFor="service-5">Houston</Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="service-6" />
+                  <Label htmlFor="service-6">Jupiter</Label>
+                </div>
+              </div>
+            </CollapsibleSubContent>
+          </Collapsible>
+
           <Separator />
-          <div className="space-y-6">
+
+          <div className="hidden space-y-6 md:block">
             <span className="block text-sm font-semibold">
               Filter by events (3)
             </span>
@@ -158,6 +250,28 @@ export default async function Monitoring() {
               </div>
             </div>
           </div>
+
+          <Collapsible className="group md:hidden">
+            <CollapsibleSubTrigger className="text-sm font-semibold">
+              Filter by events (3)
+            </CollapsibleSubTrigger>
+            <CollapsibleSubContent>
+              <div className="ms-1 space-y-4">
+                <div className="flex items-center gap-2">
+                  <Checkbox id="event-1" />
+                  <Label htmlFor="event-1">pluto.signature-created</Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="event-2" />
+                  <Label htmlFor="event-2">pluto.subscription-created</Label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox id="event-3" />
+                  <Label htmlFor="event-3">pluto.subscription-renewed</Label>
+                </div>
+              </div>
+            </CollapsibleSubContent>
+          </Collapsible>
         </nav>
 
         <div className="">

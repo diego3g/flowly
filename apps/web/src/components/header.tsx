@@ -8,11 +8,12 @@ import { Suspense } from 'react'
 import { Skeleton } from './ui/skeleton'
 import { NavLink } from './nav-link'
 import { Notifications } from './notifications'
+import { ToggleMenuHeader } from './toggle-menu'
 
 export function Header() {
   return (
     <div className="flex h-16 items-center justify-between border-b px-6">
-      <div className="flex items-center gap-4">
+      <div className="hidden items-center gap-4 md:flex">
         <Link href="/">
           <Logo className="h-8 w-8" />
         </Link>
@@ -31,7 +32,7 @@ export function Header() {
         </nav>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="hidden items-center gap-4 md:flex">
         <Button variant="outline" size="sm">
           Feedback
         </Button>
@@ -57,6 +58,15 @@ export function Header() {
         <Suspense fallback={<Skeleton className="h-8 w-8 rounded-full" />}>
           <UserNav />
         </Suspense>
+      </div>
+      <div className="flex w-full justify-between md:hidden">
+        <Link href="/">
+          <Logo className="h-8 w-8" />
+        </Link>
+        <div className="flex items-center justify-center gap-3 align-middle">
+          <Notifications />
+          <ToggleMenuHeader />
+        </div>
       </div>
     </div>
   )
