@@ -13,7 +13,7 @@ import { ToggleMenuHeader } from './toggle-menu'
 export function Header() {
   return (
     <div className="flex h-16 items-center justify-between border-b px-6">
-      <div className="hidden  items-center gap-4 md:flex">
+      <div className="hidden items-center gap-4 md:flex">
         <Link href="/">
           <Logo className="h-8 w-8" />
         </Link>
