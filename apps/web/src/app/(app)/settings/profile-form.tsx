@@ -58,12 +58,12 @@ export function ProfileForm({ user }: ProfileFormProps) {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-2 md:p-6">
             <FormField
               control={form.control}
               name="avatar"
               render={({ field }) => (
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4 md:gap-6">
                   <input
                     type="file"
                     className="sr-only"
@@ -85,7 +85,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
                       className="h-16 w-16 rounded-full bg-primary/10"
                     />
                   </label>
-                  <div>
+                  <div className="w-52 md:w-full">
                     <span className="text-lg font-medium">Your avatar</span>
                     <p className="text-sm text-muted-foreground">
                       Click on the avatar to upload a custom one from your
