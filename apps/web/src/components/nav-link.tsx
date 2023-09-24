@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge'
 
 export type NavLinkProps = ComponentProps<typeof Link>
 
-export function NavLink(props: NavLinkProps) {
+export function NavLink({ className, ...props }: NavLinkProps) {
   const pathname = usePathname()
 
   const isActive = pathname === props.href
@@ -17,7 +17,7 @@ export function NavLink(props: NavLinkProps) {
       data-active={isActive}
       className={twMerge(
         'text-sm font-medium text-muted-foreground transition-colors hover:text-primary data-[active=true]:text-primary',
-        props.className,
+        className,
       )}
       {...props}
     />
